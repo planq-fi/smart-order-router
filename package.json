@@ -1,10 +1,13 @@
 {
   "name": "@planq-fi/smart-order-router",
-  "version": "3.13.5",
+  "version": "1.0.0",
   "description": "PlanqFi Smart Order Router",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/planq-fi/smart-order-router.git"
