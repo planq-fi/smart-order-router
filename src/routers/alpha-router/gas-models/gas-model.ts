@@ -1,7 +1,7 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { ChainId, Token } from '@uniswap/sdk-core';
-
 import { Pool } from '@uniswap/v3-sdk';
+
 import { ProviderConfig } from '../../../providers/provider';
 import {
   CUSD_CELO,
