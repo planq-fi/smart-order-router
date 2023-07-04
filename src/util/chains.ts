@@ -15,6 +15,7 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.CELO,
   ChainId.BNB,
   ChainId.AVALANCHE,
+  ChainId.PLANQ,
   // Gnosis and Moonbeam don't yet have contracts deployed yet
 ];
 
@@ -72,6 +73,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.MOONBEAM;
     case 43114:
       return ChainId.AVALANCHE;
+    case 7070:
+      return ChainId.PLANQ;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -93,6 +96,7 @@ export enum ChainName {
   MOONBEAM = 'moonbeam-mainnet',
   BNB = 'bnb-mainnet',
   AVALANCHE = 'avalanche-mainnet',
+  PLANQ = 'planq-mainnet',
 }
 
 
@@ -105,6 +109,7 @@ export enum NativeCurrencyName {
   MOONBEAM = 'GLMR',
   BNB = "BNB",
   AVALANCHE = 'AVAX',
+  PLANQ = 'PLQ',
 }
 export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
   [ChainId.MAINNET]: [
@@ -163,6 +168,11 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
     'AVALANCHE',
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   ],
+  [ChainId.PLANQ]: [
+  'PLQ',
+  'PLQ',
+  '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+],
 };
 
 export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
@@ -181,6 +191,7 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.MOONBEAM]: NativeCurrencyName.MOONBEAM,
   [ChainId.BNB]: NativeCurrencyName.BNB,
   [ChainId.AVALANCHE]: NativeCurrencyName.AVALANCHE,
+  [ChainId.PLANQ]: NativeCurrencyName.PLANQ,
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -215,6 +226,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.MOONBEAM;
     case 43114:
       return ChainName.AVALANCHE;
+    case 7070:
+      return ChainName.PLANQ;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -252,6 +265,8 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
       return process.env.JSON_RPC_PROVIDER_BNB!;
     case ChainId.AVALANCHE:
       return process.env.JSON_RPC_PROVIDER_AVALANCHE!;
+    case ChainId.PLANQ:
+      return process.env.JSON_RPC_PROVIDER_PLANQ!;
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }
@@ -365,6 +380,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     'WAVAX',
     'Wrapped AVAX'
   ),
+  [ChainId.PLANQ]: new Token(
+    ChainId.PLANQ,
+    '0x5EBCdf1De1781e8B5D41c016B0574aD53E2F6E1A',
+    18,
+    'WPLQ',
+    'Wrapped PLANQ'
+  ),
 };
 
 function isMatic(
@@ -467,6 +489,30 @@ class BnbNativeCurrency extends NativeCurrency {
   }
 }
 
+function isPlanq(chainId: number): chainId is ChainId.PLANQ {
+  return chainId === ChainId.PLANQ;
+}
+
+class PlanqNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId;
+  }
+
+  get wrapped(): Token {
+    if (!isPlanq(this.chainId)) throw new Error('Not planq');
+    const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
+    if (nativeCurrency) {
+      return nativeCurrency;
+    }
+    throw new Error(`Does not support this chain ${this.chainId}`);
+  }
+
+  public constructor(chainId: number) {
+    if (!isPlanq(chainId)) throw new Error('Not planq');
+    super(chainId, 18, 'PLQ', 'PLQ');
+  }
+}
+
 function isMoonbeam(chainId: number): chainId is ChainId.MOONBEAM {
   return chainId === ChainId.MOONBEAM;
 }
@@ -549,6 +595,8 @@ export function nativeOnChain(chainId: number): NativeCurrency {
     cachedNativeCurrency[chainId] = new BnbNativeCurrency(chainId);
   else if (isAvax(chainId))
     cachedNativeCurrency[chainId] = new AvalancheNativeCurrency(chainId);
+  else if (isPlanq(chainId))
+    cachedNativeCurrency[chainId] = new PlanqNativeCurrency(chainId);
   else cachedNativeCurrency[chainId] = ExtendedEther.onChain(chainId);
 
   return cachedNativeCurrency[chainId]!;

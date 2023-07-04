@@ -139,6 +139,9 @@ export const CACHE_SEED_TOKENS: {
     DAI: DAI_AVAX,
     WAVAX: WRAPPED_NATIVE_CURRENCY[ChainId.AVALANCHE],
   },
+  [ChainId.AVALANCHE]: {
+    WPLQ: WRAPPED_NATIVE_CURRENCY[ChainId.PLANQ],
+  },
   // Currently we do not have providers for Moonbeam mainnet or Gnosis testnet
 };
 

@@ -149,6 +149,9 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDC_AVAX,
     DAI_AVAX,
   ],
+  [ChainId.PLANQ]: [
+    WRAPPED_NATIVE_CURRENCY[ChainId.PLANQ],
+  ],
   [ChainId.MOONBEAM]: [
     WRAPPED_NATIVE_CURRENCY[ChainId.MOONBEAM],
     DAI_MOONBEAM,
