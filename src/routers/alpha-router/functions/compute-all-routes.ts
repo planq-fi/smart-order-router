@@ -1,4 +1,4 @@
-import { Token } from '@planq-fi/sdk-core';
+import { Token } from '@uniswap/sdk-core';
 import { Pair } from '@uniswap/v2-sdk';
 import { Pool } from '@uniswap/v3-sdk';
 

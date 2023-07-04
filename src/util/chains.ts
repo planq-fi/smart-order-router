@@ -1,4 +1,4 @@
-import { ChainId, Currency, Ether, NativeCurrency, Token } from '@planq-fi/sdk-core';
+import { ChainId, Currency, Ether, NativeCurrency, Token } from '@uniswap/sdk-core';
 
 // WIP: Gnosis, Moonbeam
 export const SUPPORTED_CHAINS: ChainId[] = [

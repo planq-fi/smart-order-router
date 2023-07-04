@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { ChainId, Token } from '@planq-fi/sdk-core';
+import { ChainId, Token } from '@uniswap/sdk-core';
 
 import {
   BTC_BNB,

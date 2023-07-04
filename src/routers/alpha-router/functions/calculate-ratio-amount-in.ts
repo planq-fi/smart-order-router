@@ -1,4 +1,4 @@
-import { Fraction } from '@planq-fi/sdk-core';
+import { Fraction } from '@uniswap/sdk-core';
 
 import { CurrencyAmount } from '../../../util/amounts';
 

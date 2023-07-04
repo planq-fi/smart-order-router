@@ -1,4 +1,4 @@
-import { ChainId } from '@planq-fi/sdk-core';
+import { ChainId } from '@uniswap/sdk-core';
 
 import { AlphaRouterConfig } from './alpha-router';
 

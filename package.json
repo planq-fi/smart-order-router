@@ -105,7 +105,10 @@
     "jsbi": "^3.2.0"
   },
   "overrides": {
-    "@planq-fi/sdk-core": "1.0.0"
+    "@uniswap/sdk-core": "npm:@planq-fi/sdk-core@3.2.6"
+  },
+  "resolutions": {
+    "**/@uniswap/sdk-core": "npm:@planq-fi/sdk-core@3.2.6"
   },
   "files": [
     "build/main",

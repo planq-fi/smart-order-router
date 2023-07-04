@@ -4,7 +4,7 @@ import {
   SwapRouter as SwapRouter02,
   Trade,
 } from '@uniswap/router-sdk';
-import { ChainId, Currency, TradeType } from '@planq-fi/sdk-core';
+import { ChainId, Currency, TradeType } from '@uniswap/sdk-core';
 import {
   SwapRouter as UniveralRouter,
   UNIVERSAL_ROUTER_ADDRESS,

@@ -1,5 +1,5 @@
 import { Protocol } from '@uniswap/router-sdk';
-import { Token } from '@planq-fi/sdk-core';
+import { Token } from '@uniswap/sdk-core';
 
 import { MixedRoute, V2Route, V3Route } from '../../../../routers';
 

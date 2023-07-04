@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@planq-fi/sdk-core';
+import { ChainId, Token } from '@uniswap/sdk-core';
 import _ from 'lodash';
 
 import { log, WRAPPED_NATIVE_CURRENCY } from '../util';
@@ -139,7 +139,7 @@ export const CACHE_SEED_TOKENS: {
     DAI: DAI_AVAX,
     WAVAX: WRAPPED_NATIVE_CURRENCY[ChainId.AVALANCHE],
   },
-  [ChainId.AVALANCHE]: {
+  [ChainId.PLANQ]: {
     WPLQ: WRAPPED_NATIVE_CURRENCY[ChainId.PLANQ],
   },
   // Currently we do not have providers for Moonbeam mainnet or Gnosis testnet

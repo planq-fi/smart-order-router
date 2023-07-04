@@ -1,5 +1,5 @@
 import { Protocol } from '@uniswap/router-sdk';
-import { Percent } from '@planq-fi/sdk-core';
+import { Percent } from '@uniswap/sdk-core';
 import { Pair } from '@uniswap/v2-sdk';
 import { Pool } from '@uniswap/v3-sdk';
 import _ from 'lodash';

@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber';
-import { ChainId } from '@planq-fi/sdk-core';
+import { ChainId } from '@uniswap/sdk-core';
 
 // Cost for crossing an uninitialized tick.
 export const COST_PER_UNINIT_TICK = BigNumber.from(0);
