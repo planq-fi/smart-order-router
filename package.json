@@ -20,7 +20,7 @@
     "compile-router": "npx typechain --target ethers-v5 --out-dir src/types/other './node_modules/@uniswap/swap-router-contracts/artifacts/contracts/**/*.json'",
     "compile-narwhal": "npx typechain --target ethers-v5 --out-dir src/types/other './node_modules/@uniswap/narwhal/artifacts/contracts/**/*.json'",
     "compile-external-types": "npx typechain --target ethers-v5 --out-dir src/types/other 'src/abis/**/*.json'",
-    "build": "run-p compile-v3-types compile-v2-types compile-router compile-narwhal compile-external-types && run-p build:*",
+    "build": "run-p compile-v3-types compile-v2-types compile-router compile-external-types && run-p build:*",
     "build:main": "tsc -p tsconfig.json",
     "build:module": "tsc -p tsconfig.module.json",
     "fix": "run-s fix:*",
@@ -78,7 +78,7 @@
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "@uniswap/v3-core": "^1.0.0",
-    "@planq-fi/periphery": "^1.0.0",
+    "@uniswap/v3-periphery": "^1.0.0",
     "bunyan-debug-stream": "^2.0.0",
     "dotenv": "^10.0.0",
     "eslint": "^7.8.0",
@@ -105,10 +105,12 @@
     "jsbi": "^3.2.0"
   },
   "overrides": {
-    "@uniswap/sdk-core": "npm:@planq-fi/sdk-core@3.2.6"
+    "@uniswap/sdk-core": "npm:@planq-fi/sdk-core@3.2.6",
+    "@uniswap/v3-periphery" : "npm@planq-fi/periphery@1.0.0"
   },
   "resolutions": {
-    "**/@uniswap/sdk-core": "npm:@planq-fi/sdk-core@3.2.6"
+    "**/@uniswap/sdk-core": "npm:@planq-fi/sdk-core@3.2.6",
+    "**/@uniswap/v3-periphery" : "npm:@planq-fi/periphery@1.0.0"
   },
   "files": [
     "build/main",
