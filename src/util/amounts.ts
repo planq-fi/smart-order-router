@@ -2,7 +2,7 @@ import { parseUnits } from '@ethersproject/units';
 import {
   Currency,
   CurrencyAmount as CurrencyAmountRaw,
-} from '@uniswap/sdk-core';
+} from '@planq-fi/sdk-core';
 import { FeeAmount } from '@uniswap/v3-sdk';
 import JSBI from 'jsbi';
 

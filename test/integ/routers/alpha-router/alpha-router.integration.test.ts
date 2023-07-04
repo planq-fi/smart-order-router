@@ -5,7 +5,7 @@
 import { JsonRpcProvider, JsonRpcSigner } from '@ethersproject/providers';
 import { AllowanceTransfer, PermitSingle } from '@uniswap/permit2-sdk';
 import { Protocol } from '@uniswap/router-sdk';
-import { ChainId, Currency, CurrencyAmount, Ether, Percent, Token, TradeType, } from '@uniswap/sdk-core';
+import { ChainId, Currency, CurrencyAmount, Ether, Percent, Token, TradeType, } from '@planq-fi/sdk-core';
 import {
   PERMIT2_ADDRESS,
   UNIVERSAL_ROUTER_ADDRESS as UNIVERSAL_ROUTER_ADDRESS_BY_CHAIN,
@@ -2588,7 +2588,7 @@ describe('quote for other networks', () => {
       c != ChainId.OPTIMISM && /// @dev infura has been having issues with optimism lately
       // Tests are failing https://github.com/Uniswap/smart-order-router/issues/104
       c != ChainId.CELO_ALFAJORES &&
-      c != ChainId.SEPOLIA && 
+      c != ChainId.SEPOLIA &&
       // skip avalanche for now, need to add liquidity pools.
       c != ChainId.AVALANCHE
   )) {
