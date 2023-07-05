@@ -1,6 +1,6 @@
 {
   "name": "@planq-fi/smart-order-router",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "PlanqFi Smart Order Router",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -70,7 +70,7 @@
     "@types/jest": "^27.0.0",
     "@types/jest-sinon": "^1.0.2",
     "@types/lodash": "^4.14.168",
-    "@types/node": "^15.0.2",
+    "@types/node": "^16.0.0",
     "@types/sinon": "^10.0.2",
     "@types/stats-lite": "^2.2.0",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
@@ -106,11 +106,13 @@
   },
   "overrides": {
     "@uniswap/sdk-core": "npm:@planq-fi/sdk-core@3.2.6",
-    "@uniswap/v3-periphery" : "npm@planq-fi/periphery@1.0.0"
+    "@uniswap/v3-periphery" : "npm:@planq-fi/periphery@1.0.0",
+    "@uniswap/v3-core" : "npm:@planq-fi/contracts@1.0.1"
   },
   "resolutions": {
     "**/@uniswap/sdk-core": "npm:@planq-fi/sdk-core@3.2.6",
-    "**/@uniswap/v3-periphery" : "npm:@planq-fi/periphery@1.0.0"
+    "**/@uniswap/v3-periphery" : "npm:@planq-fi/periphery@1.0.0",
+    "@uniswap/v3-core" : "npm:@planq-fi/contracts@1.0.1"
   },
   "files": [
     "build/main",
