@@ -11,7 +11,7 @@ import {
   Percent,
   Token,
   TradeType,
-} from '@uniswap/sdk-core';
+} from '@planq-fi/sdk-core';
 import { SwapOptions as UniversalRouterSwapOptions } from '@uniswap/universal-router-sdk';
 import { Route as V2RouteRaw } from '@uniswap/v2-sdk';
 import {
